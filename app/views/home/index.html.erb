@@ -1,0 +1,26 @@
+<div class="container">
+    <h1>하루닥터 로그인 메인</h1>
+    <% if user_signed_in? %>
+        <p><%= current_user.name %>님 접속중.</p>
+        <% if current_user.age.present? %>
+            <p>나이 : <%= current_user.age %></p>
+        <% else %>
+            <p>나이 정보를 입력해주세요.</p>
+            <p><a href="/users/edit" class="btn btn-default">프로필수정</a></p>
+        <% end %>
+        <% if current_user.gender.present? %>
+            <p>성별 : <%= current_user.gender %></p>
+        <% else %>
+            <p>성별 정보를 입력 해주세요.</p>
+            <p><a href="/users/edit" class="btn btn-default">프로필수정</a></p>
+        <% end %>
+        <p>이메일 : <%= current_user.email %></p>
+        <p><a href="/posts" class="btn btn-default">게시판으로</a></p>
+        <a href="/users/sign_out">로그아웃</a>
+    <% else %>
+        <p>매일 의사를 만나다!<p>
+            <p>로그인하여 당신을 위한<p>
+            <p>최적의 정보들을 받아보세요.<p><br>
+        <a href="/users/sign_in">로그인</a>
+    <% end %>
+</div>
