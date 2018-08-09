@@ -1,6 +1,14 @@
 <div class="container">
-  
-  <h2><%= @post.title %></h2>
+  <style>
+       div{
+         padding: 30px;
+         margin: 30px;
+       }
+       body div:first-child{
+         border: 5px solid gray;
+       }
+</style>
+  <h2><p>제목</p><%= @post.title %></h2>
   <hr>
   
   <p><strong>내용</strong></p>
@@ -10,8 +18,8 @@
   <p><strong>이메일</strong></p>
   <p><%= @post.user.email %></p>
   <hr>
+  <%= link_to '목록', posts_path %> |
   <%= link_to '작성', edit_post_path(@post) %> |
-  <%= link_to '게시판으로가기', posts_path %> |
   <%= link_to '삭제', @post, method: :delete, data: { confirm: 'Are you sure?' } %>
   <hr>
   <p><strong>댓글작성</strong></p>

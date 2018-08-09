@@ -10,7 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_06_095334) do
+ActiveRecord::Schema.define(version: 2018_08_09_065935) do
+
+  create_table "bodies", force: :cascade do |t|
+    t.string "weight"
+    t.string "tall"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "chat_users", force: :cascade do |t|
+    t.integer "chat_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "chats", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "comments", force: :cascade do |t|
     t.text "comment"
@@ -20,6 +40,14 @@ ActiveRecord::Schema.define(version: 2018_08_06_095334) do
     t.datetime "updated_at", null: false
     t.index ["post_id"], name: "index_comments_on_post_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.integer "chat_id"
+    t.integer "chat_user_id"
+    t.string "chat_body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "posts", force: :cascade do |t|
@@ -33,6 +61,7 @@ ActiveRecord::Schema.define(version: 2018_08_06_095334) do
   end
 
   create_table "users", force: :cascade do |t|
+    t.string "nickname", default: "", null: false
     t.string "name"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false

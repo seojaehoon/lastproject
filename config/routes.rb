@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :body
   root 'home#index'
   resources :posts
   post '/posts/:post_id' =>"comments#create"

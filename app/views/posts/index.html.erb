@@ -1,5 +1,14 @@
 <div class="container">
-
+<style>
+       div{
+         width: 400px;
+         padding: 30px;
+         margin: 30px;
+       }
+       body div:last-child{
+         border: 5px solid gray;
+       }
+</style>
 <h1>게시판 목록</h1>
 
 <table class="table">
@@ -24,6 +33,6 @@
 
 <br>
 
-<p><%= link_to '게시물 작성', new_post_path %></p>
+<p>|<%= link_to '게시물 작성', new_post_path %>|</p>
 <p><a href="/" class="btn btn-default">메인으로</a></p>
 </div>

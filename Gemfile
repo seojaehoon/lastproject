@@ -2,6 +2,10 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.4.1'
+gem 'pry'
+gem 'angularjs-rails'
+gem 'pusher'
+gem 'bootstrap'
 gem 'devise'
 gem 'rails_db'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
